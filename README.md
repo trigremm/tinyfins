@@ -28,9 +28,20 @@ make d     # deploy: git pull + пересборка
 make l     # логи
 ```
 
-Маршрут `tinyfins.asmo.su → host.docker.internal:8140` прописан в
-`dc-traefik/config/routes.yaml` (file-provider с watch — подхватывается
-без перезапуска traefik).
+**Продакшен** (сервер с hostwide [dc-traefik](https://github.com/trigremm/dc-traefik):
+маршрутизация по docker-лейблам в сети `traefik-public`, TLS — Let's Encrypt):
+
+```bash
+git clone git@github.com:trigremm/tinyfins.git && cd tinyfins
+cp docker-compose.override.yaml.sample docker-compose.override.yaml
+make r
+```
+
+Плюс DNS-запись `tinyfins.asmo.su` → IP сервера (Cloudflare).
+
+**Локально** порт `127.0.0.1:8140` уже проброшен; для красивого имени в
+локальном dev-traefik (`dc-traefik/config/routes.yaml`, file-provider)
+есть маршрут `tinyfins.local → host.docker.internal:8140`.
 
 ## Управление
 

@@ -1,3 +1,8 @@
 .DS_Store
 .idea/
 *.log
+
+# local compose overrides (см. docker-compose.override.yaml.sample)
+docker-compose.override.yaml
+docker-compose.override.yml
+!docker-compose.override.yaml.sample
