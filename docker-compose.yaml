@@ -1,0 +1,11 @@
+services:
+  tinyfins:
+    build: .
+    ports:
+      - "127.0.0.1:8140:80"
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "wget --no-verbose --tries=1 --spider http://localhost:80/ || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 3

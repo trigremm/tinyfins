@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+  <title>tinyfins — детский аквариум</title>
+  <meta name="theme-color" content="#0d3d5f">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐠</text></svg>">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<canvas id="tank"></canvas>
+
+<div id="splash">
+  <div class="splash-fish">🐠</div>
+  <div class="splash-title">Коснись экрана — и аквариум оживёт</div>
+  <div class="splash-hint">
+    Родителям: удерживайте любой угол экрана 2 секунды или наберите «parent»,
+    чтобы открыть панель. Esc выходит из полного экрана.
+  </div>
+</div>
+
+<div id="hold-ring" class="hidden"></div>
+
+<div id="panel" class="hidden" role="dialog" aria-modal="true" aria-label="Панель родителя">
+  <div class="panel-card">
+    <button id="panel-close" class="panel-x" aria-label="Закрыть">×</button>
+    <h2>Панель родителя</h2>
+    <button id="btn-sound"></button>
+    <button id="btn-motion"></button>
+    <button id="btn-fullscreen"></button>
+    <button id="btn-reset">Сбросить аквариум</button>
+    <p class="hint">
+      Esc всегда выходит из полного экрана. Для полной блокировки используйте
+      kiosk-режим браузера (например, <code>chromium --kiosk</code>)
+      или «Гид-доступ» на планшете.
+    </p>
+  </div>
+</div>
+
+<script type="module" src="js/main.js"></script>
+</body>
+</html>
