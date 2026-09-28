@@ -39,9 +39,10 @@ make r
 
 Плюс DNS-запись `tinyfins.asmo.su` → IP сервера (Cloudflare).
 
-**Локально** порт `127.0.0.1:8140` уже проброшен; для красивого имени в
-локальном dev-traefik (`dc-traefik/config/routes.yaml`, file-provider)
-есть маршрут `tinyfins.local → host.docker.internal:8140`.
+**Локально** порт `127.0.0.1:8140` уже проброшен. Маршрута `tinyfins.local`
+в `dc-traefik` сейчас нет: его динамическая конфигурация лежит в
+`dc-traefik/traefik/dynamic/*.yml` (file-provider), туда и добавлять правило
+`tinyfins.local → host.docker.internal:8140`, если понадобится красивое имя.
 
 ## Управление
 
